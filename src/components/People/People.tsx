@@ -1,8 +1,6 @@
-import { useAppSelector } from "@/Controllers/hooks"
+// import { useAppSelector } from "@/Controllers/hooks"
 import {
     Get_Info,
-    Add_Friend,
-    Remove_Friend
 } from './people-controllers'
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
@@ -15,16 +13,20 @@ export const People = () => {
     const [errorMessage, setErrorMessage] =useState('')  
 
 
-    const user=useAppSelector(state=>state.user)
+    // const user=useAppSelector(state=>state.user)
     async function Get_InfoFun(data:any){
         const respones=await Get_Info(data)
 
         if (respones && respones.error){
             setErrorMessage(respones.error);
+            console.log(errorMessage);
+
         }else{
             setInfo(respones)
             setLoading(true)
+            
         }
+        
     }
     useEffect(() => {
         setTimeout(()=>{
