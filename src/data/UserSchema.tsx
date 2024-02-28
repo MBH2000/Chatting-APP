@@ -7,6 +7,7 @@ export interface UserState {
     avatar:string;
     email: string;
     isLoggedIn: boolean;
+    friends:{id:string}[];
 }
   
 const initialState: UserState = {
@@ -15,6 +16,7 @@ const initialState: UserState = {
     avatar:'',
     email: '',
     isLoggedIn: false,
+    friends:[],
 };
 
 export const userSlice = createSlice({
@@ -36,10 +38,13 @@ export const userSlice = createSlice({
         setToken: (state, action: PayloadAction<string>) => {
             state.token = action.payload;
         },
+        setFriends: (state, action: PayloadAction<[]>) => {
+            state.friends = action.payload;
+        }
     }
 });
 
-export const { toggleIsLoggedIn, setName,setAvatar, setToken,setEmail } = userSlice.actions;
+export const { toggleIsLoggedIn, setName,setAvatar, setToken,setEmail ,setFriends } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user
 

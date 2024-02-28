@@ -1,9 +1,8 @@
-import { Search_controllers } from "./search-controler";
+import { Search_controllers } from "../../Controllers/search-controler";
 import { useState } from "react";
-import { Search } from "lucide-react"
+import { Search, UserRoundPlus } from "lucide-react"
 import './search.css'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Link } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -11,11 +10,16 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { DialogClose } from "@radix-ui/react-dialog";
-
+import {
+  Add_Friend,
+  Remove_Friend
+} from '../../Controllers/people-controllers'
+import { useAppSelector } from "@/Controllers/hooks";
 
 export const SearchComponent = () => {
+    const user=useAppSelector(state=>state.user)
     const [searchVal, setSearchVal] = useState('');
     const [result, setResult] = useState([]);
   
@@ -26,11 +30,13 @@ export const SearchComponent = () => {
     }
   
     async function search(value: any) {
-      const response = await Search_controllers(value);
+      const response = await Search_controllers(user,value);
       if (response && response.error) {
         setResult([]);  
       } else {
         setResult(response);
+        console.log(result);
+        
       }
     }
   
@@ -62,13 +68,24 @@ export const SearchComponent = () => {
                       <li key={index} className='list-item'>
                         <DialogFooter className='list-item'>
                           <DialogClose asChild>
-                            <Link to={`/user`}  state={{ id: user._id }} className="flex items-center">
+                            <div className="flex items-center">
                               <Avatar className="mr-2">
                                 <AvatarImage src={`${user.profilePic}`} />
                                 <AvatarFallback>{user.name[0]}</AvatarFallback>
                               </Avatar>
                               <h1 className="text-left mt-1">{user.name}</h1>
-                            </Link>
+                              {
+                              user.isFriend? 
+                              <></>
+                              :
+                              <Button variant="outline" size="icon" className="ml-auto" onClick={()=>{
+                                setSearchVal("");
+                                setResult([]);
+                              }}>
+                                <UserRoundPlus className="h-4 w-4"/>
+                              </Button>
+                              }
+                            </div>
                           </DialogClose>
                         </DialogFooter>
                       </li>
@@ -76,7 +93,6 @@ export const SearchComponent = () => {
                   </ul>
                 </div>
               )}
-
             </div>
           </DialogHeader>
         </DialogContent>

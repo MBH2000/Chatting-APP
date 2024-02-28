@@ -21,7 +21,8 @@ import {
   setName,
   setToken,
   setAvatar,
-  setEmail
+  setEmail,
+  setFriends
 } from '../../data/UserSchema'
 import ErrorMessagePopup from '../popup/ErrorMessagePopup';
 
@@ -56,6 +57,8 @@ export function Login() {
         dispatch(setToken(response.token))
         dispatch(setAvatar(response.user.profilePic))
         dispatch(setEmail(response.user.email))
+        dispatch(setFriends(response.user.friends))
+
       }
     } catch (error) {
        setErrorMessage('An error occurred while Login.')

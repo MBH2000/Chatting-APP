@@ -5,7 +5,6 @@ import { HomePage } from './components/Homepage/HomePage';
 import './App.css'
 import { NavBar } from './components/Navbar/NavBar';
 import { ThemeProvider } from "@/Controllers/theme-provider"
-import { People } from './components/People/People';
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
           <Route path="/" element={<HomePage/ >} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
-          <Route path='/user' element={<People/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

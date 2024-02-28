@@ -1,8 +1,5 @@
 import axios from "axios";
 
-
-
-
 const API_BASE_URL = import.meta.env.VITE_APP_REQ_URL;
 
 const api = axios.create({
@@ -25,6 +22,7 @@ export async function Get_Info(data:any) {
         }
     }
 }
+
 export async function Add_Friend(user:any,data:any) {
     const config ={
         headers: {
@@ -42,6 +40,7 @@ export async function Add_Friend(user:any,data:any) {
         }
     }
 }
+
 export async function Remove_Friend(user:any,data:any) {
     const config ={
         headers: {
