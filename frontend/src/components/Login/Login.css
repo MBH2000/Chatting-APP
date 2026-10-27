@@ -1,0 +1,38 @@
+.Login-text{
+    padding-top: 5%;
+    text-align: center;
+
+  }
+  .Login-div {
+    position: relative; /* Add this line */
+    background-color:var(--me);
+    border-radius: 5%;
+    width: 30vw; /* 40% of the viewport width */
+    height: 80vh; /* 60% of the viewport height */
+    text-align: center;
+    margin: auto; /* Center horizontally */
+    margin-top: 5vh; /* 10% of the viewport height - Adjust as needed */
+  }
+  
+  .bottom-log {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    margin-left: 6%;
+    margin-bottom: 5%;
+  }
+  
+  
+  .Login-form {
+    width: 90%;
+    height: 50%;
+    text-align: center;
+    margin: auto; /* Center horizontally */
+  }  
+  .Login-But{
+    width: 100%;
+  }
+  .error-login{
+    color: rgb(222, 68, 68);
+    margin-top: 5%;
+  }

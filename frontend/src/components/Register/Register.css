@@ -1,0 +1,43 @@
+/* Header Text Styles */
+.Register-text {
+  padding-top: 5%;
+  text-align: center;
+}
+
+/* Registration Container Styles */
+.Register-div {
+  position: relative; /* Add this line */
+  background-color: var(--me);
+  border-radius: 5%;
+  width: 30vw; /* 40% of the viewport width */
+  height: 80vh; /* 60% of the viewport height */
+  max-height: 100vw;
+  text-align: center;
+  margin: auto; /* Center horizontally */
+  margin-top: 5vh; /* 10% of the viewport height - Adjust as needed */
+}
+
+/* Registration Form Styles */
+.Register-form {
+  width: 90%;
+  text-align: center;
+  margin: auto; /* Center horizontally */
+}
+
+/* Left-aligned Text Styles */
+.text-left {
+  text-align: left;
+}
+
+/* Bottom-aligned Text Styles */
+.bottom {
+  position: absolute;
+  bottom: 0;
+  text-align: left;
+  margin-left: 6%;
+  margin-bottom: 5%;
+}
+
+.Register-But{
+  width: 100%;
+}
